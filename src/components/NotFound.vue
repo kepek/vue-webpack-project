@@ -1,15 +1,13 @@
 <template>
-    <div id="hello">
-      <h2>{{ message }}</h2>
-    </div>
+    <h2>{{ message }}</h2>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'not-found',
   data () {
     return {
-      message: 'Hello World Component!'
+      message: '404 - Not Found'
     }
   }
 }

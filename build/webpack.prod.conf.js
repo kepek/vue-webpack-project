@@ -1,14 +1,21 @@
 var path = require('path')
 var utils = require('./utils')
+var prerenderSpaRoutes = require('./prerender-spa-routes')
 var webpack = require('webpack')
 var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var PrerenderSpaPlugin = require('prerender-spa-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
+
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -76,7 +83,15 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: '.htaccess',
+      to: '.'
+    }]),
+    new PrerenderSpaPlugin(
+      resolve('dist'),
+      prerenderSpaRoutes
+    )
   ]
 })
 

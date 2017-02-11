@@ -1,15 +1,15 @@
 <template>
-    <div id="hello">
-      <h2>{{ message }}</h2>
-    </div>
+  <div id="about">
+    <h2>{{ msg }}</h2>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'about',
   data () {
     return {
-      message: 'Hello World Component!'
+      msg: 'Tell me something About you!'
     }
   }
 }
