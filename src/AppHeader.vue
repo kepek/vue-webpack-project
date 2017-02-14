@@ -29,6 +29,8 @@
   export default {
     name: 'app-header',
     data () {
+      console.log('this', this)
+
       return {
         msg: 'Header'
       }
@@ -60,7 +62,7 @@
     .router-link-active {
       border-bottom: 1px solid #328f67;
     }
-    
+
     a {
       text-decoration: none;
     }

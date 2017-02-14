@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Version from 'plugins/version'
 import Hello from 'components/Hello'
 import About from 'components/About'
 import GitHub from 'components/GitHub'
 import NotFound from 'components/NotFound'
 
 Vue.use(Router)
+Vue.use(Version)
 
 export const mode = 'history'
 

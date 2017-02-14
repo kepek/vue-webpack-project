@@ -7,11 +7,18 @@
 </template>
 
 <script>
-  import AppHeader from 'AppHeader'
-  import AppFooter from 'AppFooter'
+  import AppHeader from './AppHeader'
+  import AppFooter from './AppFooter'
 
   export default {
     name: 'app',
+
+    data () {
+      return {
+        version: this.$version
+      }
+    },
+
     components: {
       AppHeader,
       AppFooter

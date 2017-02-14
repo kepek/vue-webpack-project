@@ -1,18 +1,19 @@
 <template>
   <div id="about">
     <h2>{{ msg }}</h2>
+    <textarea v-focus>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'about',
-  data () {
-    return {
-      msg: 'Tell me something About you!'
+  export default {
+    name: 'about',
+    data () {
+      return {
+        msg: 'Tell me something About you!'
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
