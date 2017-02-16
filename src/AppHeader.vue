@@ -1,45 +1,27 @@
 <template>
   <div id="app-header">
-    <h1>{{ msg }}</h1>
-    <router-link to="/">
-      <img src="./assets/logo.png">
-    </router-link>
-    <hr>
-    <nav>
-      <ul>
-        <li>
-          <router-link to="/" exact>Hello</router-link>
-        </li>
-        <li>
-          <router-link to="/about">About</router-link>
-        </li>
-        <li>
-          <router-link to="/github">GitHub</router-link>
-        </li>
-        <li>
-          <router-link to="/not-found">Not Found</router-link>
-        </li>
-      </ul>
-    </nav>
-    <hr>
+    <header>
+      <slot></slot>
+      <slot name="logo"></slot>
+      <slot name="menu"></slot>
+    </header>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'app-header',
-    data () {
-      console.log('this', this)
-
-      return {
-        msg: 'Header'
-      }
-    }
+    name: 'app-header'
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+  header {
+    border-bottom: 1px solid #328f67;
+    padding: 15px 0;
+    margin: 15px 0;
+  }
+
   h1, h2 {
     font-weight: normal;
   }
@@ -59,12 +41,14 @@
   }
 
   nav {
-    .router-link-active {
-      border-bottom: 1px solid #328f67;
-    }
 
-    a {
-      text-decoration: none;
-    }
+  .router-link-active {
+    border-bottom: 1px solid #328f67;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
   }
 </style>

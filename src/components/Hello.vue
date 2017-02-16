@@ -1,18 +1,20 @@
 <template>
-  <div id="hello">
+  <app-layout id="app-layout">
     <h2>{{ message }}</h2>
-  </div>
+  </app-layout>
 </template>
 
 <script>
-  export default {
+  import AppComponent from '../AppComponent'
+
+  export default AppComponent({
     name: 'hello',
     data () {
       return {
         message: 'Hello World Component!'
       }
     }
-  }
+  })
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

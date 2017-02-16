@@ -1,16 +1,23 @@
 <template>
   <div id="app-footer">
-    <hr>
-    <h1>{{ msg }}</h1>
+    <footer>
+      <slot>
+        <small>
+          SPA powered by Vue.js / Copyright {{ year }} {{ author }} /  {{ $version }}
+        </small>
+      </slot>
+    </footer>
   </div>
 </template>
 
 <script>
   export default {
     name: 'app-footer',
+
     data () {
       return {
-        msg: 'Footer'
+        author: '@kepek',
+        year: new Date().getFullYear()
       }
     }
   }
@@ -18,21 +25,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  h1, h2 {
-    font-weight: normal;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
+  footer {
+    border-top: 1px solid #328f67;
+    padding: 15px 0;
+    margin: 15px 0;
   }
 </style>

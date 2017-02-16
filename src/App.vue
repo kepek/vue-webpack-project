@@ -1,28 +1,12 @@
 <template>
   <div id="app">
-    <app-header></app-header>
     <router-view></router-view>
-    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-  import AppHeader from './AppHeader'
-  import AppFooter from './AppFooter'
-
   export default {
-    name: 'app',
-
-    data () {
-      return {
-        version: this.$version
-      }
-    },
-
-    components: {
-      AppHeader,
-      AppFooter
-    }
+    name: 'app'
   }
 </script>
 
@@ -33,6 +17,9 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+  }
+
+  #app-layout {
+    padding: 60px 0;
   }
 </style>
