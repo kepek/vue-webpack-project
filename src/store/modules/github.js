@@ -1,28 +1,27 @@
 import github from '../../api/github'
-import * as types from '../mutations'
+import * as types from '../mutation-types'
 
-// initial state
+// Initial state
 const state = {
   commits: []
 }
 
-// getters
+// Getters
 const getters = {
   commits: state => state.commits
 }
 
-// actions
+// Actions
 const actions = {
-  getCommits ({commit}, payload) {
-    github.getCommits(payload, commits => {
-      commit(types.RECEIVE_COMMITS, {commits})
-    })
+  async getCommits ({commit}, payload) {
+    commit(types.RECEIVE_COMMITS, await github.getCommits(payload))
+    return Promise.resolve()
   }
 }
 
-// mutations
+// Mutations
 const mutations = {
-  [types.RECEIVE_COMMITS] (state, { commits }) {
+  [types.RECEIVE_COMMITS] (state, {commits}) {
     state.commits = commits
   }
 }

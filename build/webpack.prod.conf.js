@@ -90,7 +90,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     }]),
     new PrerenderSpaPlugin(
       resolve('dist'),
-      prerenderSpaRoutes
+      prerenderSpaRoutes,
+      {
+        captureAfterTime: 5000
+      }
     )
   ]
 })

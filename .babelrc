@@ -4,6 +4,7 @@
     "stage-2"
   ],
   "plugins": [
+    ["syntax-async-functions"],
     ["transform-runtime"],
     ["transform-class-properties", { "spec": true }]
   ],
