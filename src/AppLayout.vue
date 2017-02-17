@@ -35,9 +35,9 @@
 </template>
 
 <script>
-  import AppHeader from './AppHeader'
-  import AppContent from './AppContent'
-  import AppFooter from './AppFooter'
+  import AppHeader from 'src/AppHeader'
+  import AppContent from 'src/AppContent'
+  import AppFooter from 'src/AppFooter'
 
   export default {
     name: 'app-layout',
@@ -49,3 +49,9 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  #app-layout {
+    padding: 60px 0;
+  }
+</style>

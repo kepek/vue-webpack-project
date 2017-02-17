@@ -1,5 +1,5 @@
-import github from '../../api/github'
-import * as types from '../mutation-types'
+import github from 'src/api/github'
+import * as types from 'src/store/mutation-types'
 
 // Initial state
 const state = {

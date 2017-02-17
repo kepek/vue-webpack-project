@@ -18,8 +18,4 @@
     text-align: center;
     color: #2c3e50;
   }
-
-  #app-layout {
-    padding: 60px 0;
-  }
 </style>

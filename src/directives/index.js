@@ -1,1 +1,1 @@
-export {focus} from './focus'
+export {focus} from 'src/directives/focus'

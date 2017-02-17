@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import github from './modules/github'
-import createLogger from '../plugins/logger'
+import github from 'src/store/modules/github'
+import createLogger from 'src/plugins/logger'
 
 Vue.use(Vuex)
 

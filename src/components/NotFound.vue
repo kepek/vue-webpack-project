@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import AppComponent from '../AppComponent'
+  import AppComponent from 'src/AppComponent'
 
   export default AppComponent({
     name: 'not-found',

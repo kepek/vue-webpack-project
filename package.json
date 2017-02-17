@@ -15,10 +15,11 @@
   "dependencies": {
     "node-sass": "^4.5.0",
     "vue": "^2.1.10",
-    "vue-router": "^2.2.0",
     "vue-async-computed": "^3.0.0",
+    "vue-bus": "^0.3.0",
     "vue-model": "0.0.3",
     "vue-resource": "^1.2.0",
+    "vue-router": "^2.2.0",
     "vuex": "^2.1.2"
   },
   "devDependencies": {

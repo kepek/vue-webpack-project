@@ -1,6 +1,6 @@
 import merge from 'lodash/merge'
-import AppLayout from './AppLayout'
-import * as directives from './directives'
+import AppLayout from 'src/AppLayout'
+import * as directives from 'src/directives'
 
 const AppComponentMixin = {
   directives,

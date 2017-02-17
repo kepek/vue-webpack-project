@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import AppComponent from '../AppComponent'
+  import AppComponent from 'src/AppComponent'
   import {mapGetters} from 'vuex'
 
   const dataModel = {
@@ -56,6 +56,10 @@
       this.getCommits()
     },
 
+    beforeDestroy () {
+      this.$bus.off('github.changed-branch', this.currentBranch)
+    },
+
     watch: {
       currentBranch () {
         this.getCommits()
@@ -64,6 +68,7 @@
 
     methods: {
       getCommits () {
+        this.$bus.emit('github.changed-branch', this.currentBranch)
         return this.$store.dispatch('getCommits', {
           username: this.username,
           repo: this.repo,
