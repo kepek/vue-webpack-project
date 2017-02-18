@@ -9,8 +9,14 @@
 
   export default AppComponent({
     name: 'hello',
+
     data () {
       return {
+        head: {
+          title: {
+            inner: 'Hello'
+          }
+        },
         message: 'Hello World Component!'
       }
     }

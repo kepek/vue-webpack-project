@@ -92,7 +92,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       resolve('dist'),
       prerenderSpaRoutes,
       {
-        captureAfterTime: 5000
+        captureAfterTime: 8500 // 8.5s
       }
     )
   ]

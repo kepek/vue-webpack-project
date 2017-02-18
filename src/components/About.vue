@@ -16,6 +16,11 @@
 
     data () {
       return {
+        head: {
+          title: {
+            inner: 'About'
+          }
+        },
         bio: '...',
         message: 'Tell me something about you!'
       }

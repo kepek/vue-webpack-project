@@ -11,7 +11,7 @@
     name: 'not-found',
     data () {
       return {
-        message: '404 - Not Found'
+        message: 'Error 404 - Not Found'
       }
     }
   })

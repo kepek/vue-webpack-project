@@ -16,11 +16,11 @@ export default [
   },
   {
     path: '/github',
-    name: 'gitHub',
+    name: 'github',
     component: GitHub
   },
   {
-    path: '*',
+    path: 'c*',
     name: 'not-found',
     component: NotFound
   }

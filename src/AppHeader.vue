@@ -1,6 +1,7 @@
 <template>
   <div id="app-header">
     <header>
+      <h1>{{ $t("message.hello") }}</h1>
       <slot></slot>
       <slot name="logo"></slot>
       <slot name="menu"></slot>

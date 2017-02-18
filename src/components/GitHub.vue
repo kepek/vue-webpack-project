@@ -35,6 +35,11 @@
   import {mapGetters} from 'vuex'
 
   const dataModel = {
+    head: {
+      title: {
+        inner: 'GitHub'
+      }
+    },
     username: 'vuejs',
     repo: 'vue',
     branches: ['master', 'dev'],
