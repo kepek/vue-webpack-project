@@ -1,5 +1,4 @@
 export default {
-  message: {
-    hello: 'Cześć Świecie!'
-  }
+  hello: 'Cześć Świecie!',
+  submit: 'Wyślij'
 }

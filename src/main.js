@@ -34,9 +34,10 @@ plugins.forEach((plugin) => {
 
 Vue.config.lang = config.lang
 Vue.config.fallbackLang = config.lang
+Vue.config.locales = locales
 
 Object.keys(locales).forEach(function (lang) {
-  Vue.locale(lang, locales[lang])
+  Vue.locale(lang, locales[lang].value.locales)
 })
 
 /* eslint-disable no-new */

@@ -1,7 +1,9 @@
 <template>
   <div id="app-header">
     <header>
-      <h1>{{ $t("message.hello") }}</h1>
+      <h1>{{ $t("hello") }}</h1>
+      <lang-switcher></lang-switcher>
+      <hr>
       <slot></slot>
       <slot name="logo"></slot>
       <slot name="menu"></slot>
@@ -10,8 +12,14 @@
 </template>
 
 <script>
+  import LangSwitcher from 'src/components/LangSwitcher'
+
   export default {
-    name: 'app-header'
+    name: 'app-header',
+
+    components: {
+      LangSwitcher
+    }
   }
 </script>
 

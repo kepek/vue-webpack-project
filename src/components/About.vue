@@ -3,7 +3,7 @@
     <p>{{message}}</p>
     <form @submit.prevent="onSubmit">
       <input v-focus v-model="bio">
-      <button type="submit">Submit</button>
+      <button type="submit">{{ $t("submit") }}</button>
     </form>
   </app-layout>>
 </template>
@@ -11,8 +11,10 @@
 <script>
   import AppComponent from 'src/AppComponent'
 
+  const name = 'about'
+
   export default AppComponent({
-    name: 'about',
+    name,
 
     data () {
       return {

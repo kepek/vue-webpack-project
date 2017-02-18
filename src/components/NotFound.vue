@@ -7,8 +7,11 @@
 <script>
   import AppComponent from 'src/AppComponent'
 
+  const name = 'not-found'
+
   export default AppComponent({
-    name: 'not-found',
+    name,
+
     data () {
       return {
         message: 'Error 404 - Not Found'

@@ -1,5 +1,4 @@
 export default {
-  message: {
-    hello: 'Hello World'
-  }
+  hello: 'Hello World',
+  submit: 'Submit'
 }

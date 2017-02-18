@@ -34,6 +34,8 @@
   import AppComponent from 'src/AppComponent'
   import {mapGetters} from 'vuex'
 
+  const name = 'github'
+
   const dataModel = {
     head: {
       title: {
@@ -47,7 +49,7 @@
   }
 
   export default AppComponent({
-    name: 'github',
+    name,
 
     data () {
       return dataModel
@@ -62,7 +64,7 @@
     },
 
     beforeDestroy () {
-      this.$bus.off('github.changed-branch', this.currentBranch)
+      this.$bus.off(`${name}.branch.change`, this.currentBranch)
     },
 
     watch: {
@@ -73,7 +75,7 @@
 
     methods: {
       getCommits () {
-        this.$bus.emit('github.changed-branch', this.currentBranch)
+        this.$bus.emit(`${name}.branch.change`, this.currentBranch)
         return this.$store.dispatch('getCommits', {
           username: this.username,
           repo: this.repo,

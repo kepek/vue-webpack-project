@@ -7,8 +7,10 @@
 <script>
   import AppComponent from 'src/AppComponent'
 
+  const name = 'hello'
+
   export default AppComponent({
-    name: 'hello',
+    name,
 
     data () {
       return {
