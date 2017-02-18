@@ -20,7 +20,7 @@ export default [
     component: GitHub
   },
   {
-    path: 'c*',
+    path: '*',
     name: 'not-found',
     component: NotFound
   }
