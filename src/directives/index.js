@@ -1,1 +1,1 @@
- import './focus'
+export {focus} from 'src/directives/focus'

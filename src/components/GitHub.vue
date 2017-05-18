@@ -1,6 +1,5 @@
 <template>
-  <div id="github">
-    <h2>{{ msg }}</h2>
+  <app-layout id="app-layout">
     <h1>Latest Vue.js Commits</h1>
     <ul>
       <li v-for="branch in branches">
@@ -10,49 +9,82 @@
         </label>
       </li>
     </ul>
-    <h1 v-if="commits">vuejs/vue@{{ currentBranch }}</h1>
-    <h3 v-else="commits">Can't load data from GitHub...</h3>
-    <ul v-show="commits">
-      <li v-for="record in commits">
-        <a :href="record.html_url" target="_blank" class="commit">
-          {{ record.sha.slice(0, 7) }}
-        </a>
-        - <span class="message">{{ record.commit.message | truncate }}</span>
-        <br>
-        by <span class="author">
+    <div v-if="commits">
+      <h1>vuejs/vue@{{ currentBranch }}</h1>
+      <ul>
+        <li v-for="record in commits" class="commit">
+          <a :href="record.html_url" target="_blank" class="commit">
+            {{ record.sha.slice(0, 7) }}
+          </a>
+          - <span class="message">{{ record.commit.message | truncate }}</span>
+          <br>
+          by <span class="author">
           <a :href="record.author.html_url" target="_blank">
             {{ record.commit.author.name }}
           </a>
         </span>
-        at <span class="date">{{ record.commit.author.date | formatDate }}</span>
-      </li>
-    </ul>
-  </div>
+          at <span class="date">{{ record.commit.author.date | formatDate }}</span>
+        </li>
+      </ul>
+    </div>
+  </app-layout>
 </template>
 
 <script>
-  import fetchival from 'fetchival'
+  import AppComponent from 'src/AppComponent'
+  import {mapGetters} from 'vuex'
 
-  let apiURL = 'https://api.github.com/repos/vuejs/vue/commits?per_page=3&sha='
+  const name = 'github'
 
-  export default {
-    name: 'github',
-
-    data () {
-      return {
-        msg: 'GitHub',
-        branches: ['master', 'dev'],
-        currentBranch: 'master',
-        commits: null
+  const dataModel = {
+    head: {
+      title: {
+        inner: 'GitHub'
       }
     },
+    username: 'vuejs',
+    repo: 'vue',
+    branches: ['master', 'dev'],
+    currentBranch: 'master'
+  }
 
-    created: function () {
-      this.fetchData()
+  export default AppComponent({
+    name,
+
+    data () {
+      return dataModel
+    },
+
+    computed: mapGetters({
+      commits: 'commits'
+    }),
+
+    created () {
+      this.getCommits()
+    },
+
+    beforeDestroy () {
+      this.$bus.off(`${name}.branch.change`, this.currentBranch)
     },
 
     watch: {
-      currentBranch: 'fetchData'
+      currentBranch () {
+        this.getCommits()
+      }
+    },
+
+    methods: {
+      getCommits () {
+        this.$bus.emit(`${name}.branch.change`, this.currentBranch)
+        return this.$store.dispatch('getCommits', {
+          username: this.username,
+          repo: this.repo,
+          q: {
+            per_page: 3,
+            sha: this.currentBranch
+          }
+        })
+      }
     },
 
     filters: {
@@ -63,22 +95,17 @@
       formatDate (v) {
         return v.replace(/T|Z/g, ' ')
       }
-    },
-
-    methods: {
-      fetchData () {
-        fetchival(apiURL + this.currentBranch)
-          .get()
-          .then((json) => {
-            this.commits = json
-          })
-      }
     }
-  }
+  })
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+  #app-layout {
+    background: blue;
+    color: white;
+  }
+
   h1, h2 {
     font-weight: normal;
   }
@@ -97,6 +124,10 @@
 
   a {
     color: #42b983;
+  }
+
+  .commit {
+    display: block;
   }
 
   .author, .date {

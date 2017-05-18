@@ -1,16 +1,23 @@
 <template>
-  <h2>{{ message }}</h2>
+  <app-layout id="app-layout">
+    <h2>{{ message }}</h2>
+  </app-layout>
 </template>
 
 <script>
-  export default {
-    name: 'not-found',
+  import AppComponent from 'src/AppComponent'
+
+  const name = 'not-found'
+
+  export default AppComponent({
+    name,
+
     data () {
       return {
-        message: '404 - Not Found'
+        message: 'Error 404 - Not Found'
       }
     }
-  }
+  })
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

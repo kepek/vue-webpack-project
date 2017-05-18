@@ -1,19 +1,39 @@
 <template>
-  <div id="about">
-    <h2>{{ msg }}</h2>
-    <textarea v-focus>
-  </div>
+  <app-layout id="app-layout">
+    <p>{{message}}</p>
+    <form @submit.prevent="onSubmit">
+      <input v-focus v-model="bio">
+      <button type="submit">{{ $t("submit") }}</button>
+    </form>
+  </app-layout>>
 </template>
 
 <script>
-  export default {
-    name: 'about',
+  import AppComponent from 'src/AppComponent'
+
+  const name = 'about'
+
+  export default AppComponent({
+    name,
+
     data () {
       return {
-        msg: 'Tell me something About you!'
+        head: {
+          title: {
+            inner: 'About'
+          }
+        },
+        bio: '...',
+        message: 'Tell me something about you!'
+      }
+    },
+
+    methods: {
+      onSubmit () {
+        alert(`The only thing that I can say is ${this.bio}`)
       }
     }
-  }
+  })
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
