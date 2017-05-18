@@ -10,7 +10,8 @@
         </label>
       </li>
     </ul>
-    <h1>vuejs/vue@{{ currentBranch }}</h1>
+    <h1 v-if="commits">vuejs/vue@{{ currentBranch }}</h1>
+    <h3 v-else="commits">Can't load data from GitHub...</h3>
     <ul v-show="commits">
       <li v-for="record in commits">
         <a :href="record.html_url" target="_blank" class="commit">
@@ -30,6 +31,8 @@
 </template>
 
 <script>
+  import fetchival from 'fetchival'
+
   let apiURL = 'https://api.github.com/repos/vuejs/vue/commits?per_page=3&sha='
 
   export default {
@@ -64,14 +67,11 @@
 
     methods: {
       fetchData () {
-        let xhr = new XMLHttpRequest()
-        let self = this
-        xhr.open('GET', apiURL + self.currentBranch)
-        xhr.onload = function () {
-          self.commits = JSON.parse(xhr.responseText)
-          console.log(self.commits[0].html_url)
-        }
-        xhr.send()
+        fetchival(apiURL + this.currentBranch)
+          .get()
+          .then((json) => {
+            this.commits = json
+          })
       }
     }
   }

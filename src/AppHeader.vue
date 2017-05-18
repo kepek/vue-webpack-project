@@ -29,8 +29,6 @@
   export default {
     name: 'app-header',
     data () {
-      console.log('this', this)
-
       return {
         msg: 'Header'
       }

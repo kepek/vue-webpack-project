@@ -13,9 +13,12 @@
     "lint": "eslint --fix --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "es6-promise": "^4.1.0",
+    "fetchival": "^0.3.2",
     "node-sass": "^4.5.0",
     "vue": "^2.1.10",
-    "vue-router": "^2.2.0"
+    "vue-router": "^2.2.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
